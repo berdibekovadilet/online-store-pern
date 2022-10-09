@@ -1,16 +1,26 @@
 const uuid = require("uuid");
 const path = require("path");
-const { Device } = require("../models/models");
+const { Device, DeviceInfo } = require("../models/models");
 const ApiError = require("../error/ApiError");
 
 class DeviceController {
   async create(req, res, next) {
     try {
-      const { name, price, typeId, brandId, info } = req.body;
+      let { name, price, typeId, brandId, info } = req.body;
       const { img } = req.files;
       let filename = uuid.v4() + ".jpg";
       img.mv(path.resolve(__dirname, "..", "static", filename));
 
+      if (info) {
+        info = JSON.parse(info);
+        info.forEeach((i) =>
+          DeviceInfo.create({
+            title: info.title,
+            description: info.description,
+            deviceId: device.id,
+          })
+        );
+      }
       const device = await Device.create({
         name,
         price,
@@ -56,7 +66,14 @@ class DeviceController {
 
     return res.json(devices);
   }
-  async getOne(req, res) {}
+  async getOne(req, res) {
+    const { id } = req.params;
+    const device = await Device.findOne({
+      where: { id },
+      include: [{ model: DeviceInfo, as: "info" }],
+    });
+    return res.json(device);
+  }
 }
 
 module.exports = new DeviceController();
