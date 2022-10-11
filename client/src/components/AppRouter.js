@@ -6,9 +6,6 @@ import { Context } from "..";
 
 const AppRouter = () => {
   const { user } = useContext(Context);
-  console.log("====================================");
-  console.log(user);
-  console.log("====================================");
   return (
     <Routes>
       {user.isAuth &&
