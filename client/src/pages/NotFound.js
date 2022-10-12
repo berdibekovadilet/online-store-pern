@@ -1,8 +1,9 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <Container>NotFound</Container>
   )
 }
 
