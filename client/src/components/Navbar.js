@@ -18,11 +18,11 @@ const NavbarMenu = observer(() => {
             <Button variant={"outline-light"} className="me-3">
               Админ-панель
             </Button>
-            <Button onClick={() => user.setIsAuth(false)}>Выйти</Button>
+            <Button>Войти</Button>
           </Nav>
         ) : (
           <Nav className="ml-auto">
-            <Button onClick={() => user.setIsAuth(true)}>Войти</Button>
+            <Button onClick={() => user.setIsAuth(true)}>Авторизация</Button>
           </Nav>
         )}
       </Container>
