@@ -10,6 +10,11 @@ import { useNavigate } from "react-router-dom";
 const NavbarMenu = observer(() => {
   const navigate = useNavigate();
   const { user } = useContext(Context);
+
+  const logOut = () => {
+    user.setUser({});
+    user.setIsAuth(false);
+  };
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -27,17 +32,17 @@ const NavbarMenu = observer(() => {
             >
               Админ-панель
             </Button>
+            <Button onClick={() => logOut}>Выйти</Button>
+          </Nav>
+        ) : (
+          <Nav className="ml-auto">
             <Button
               onClick={() => {
                 navigate(LOGIN_ROUTE);
               }}
             >
-              Выйти
+              Авторизация
             </Button>
-          </Nav>
-        ) : (
-          <Nav className="ml-auto">
-            <Button onClick={() => user.setIsAuth(true)}>Авторизация</Button>
           </Nav>
         )}
       </Container>
