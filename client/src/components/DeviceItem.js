@@ -15,7 +15,7 @@ const DeviceItem = ({ device }) => {
       className="mt-3"
     >
       <Card style={{ width: 220, cursor: "pointer" }} border={"light"}>
-        <Image fluid={true} width={220} height={220} src={device.img} />
+        <Image fluid={true} width={220} height={220} src={process.env.REACT_APP_API_URL + device.img} />
         <div className="mt-1 d-flex justify-content-between align-items-center">
           <div className="text-black-50">Apple</div>
           <div className="d-flex align-items-center">

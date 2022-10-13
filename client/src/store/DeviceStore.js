@@ -4,43 +4,7 @@ export default class DeviceStore {
   constructor() {
     this._types = [];
     this._brands = [];
-    this._devices = [
-      {
-        id: 1,
-        name: "Iphone 14",
-        price: 25000,
-        rating: 5,
-        img: "https://www.ixbt.com/img/n1/news/2022/9/6/Apple-iPhone-14-iPhone-14-Plus-hero-220907-geo_Full-Bleed-Image.jpg.large_large.jpg",
-      },
-      {
-        id: 2,
-        name: "Iphone 14",
-        price: 25000,
-        rating: 5,
-        img: "https://www.ixbt.com/img/n1/news/2022/9/6/Apple-iPhone-14-iPhone-14-Plus-hero-220907-geo_Full-Bleed-Image.jpg.large_large.jpg",
-      },
-      {
-        id: 3,
-        name: "Iphone 14",
-        price: 25000,
-        rating: 5,
-        img: "https://www.ixbt.com/img/n1/news/2022/9/6/Apple-iPhone-14-iPhone-14-Plus-hero-220907-geo_Full-Bleed-Image.jpg.large_large.jpg",
-      },
-      {
-        id: 4,
-        name: "Iphone 14",
-        price: 25000,
-        rating: 5,
-        img: "https://www.ixbt.com/img/n1/news/2022/9/6/Apple-iPhone-14-iPhone-14-Plus-hero-220907-geo_Full-Bleed-Image.jpg.large_large.jpg",
-      },
-      {
-        id: 5,
-        name: "Iphone 14",
-        price: 25000,
-        rating: 5,
-        img: "https://www.ixbt.com/img/n1/news/2022/9/6/Apple-iPhone-14-iPhone-14-Plus-hero-220907-geo_Full-Bleed-Image.jpg.large_large.jpg",
-      },
-    ];
+    this._devices = [];
     this._selectedType = {};
     this._selectedBrand = {};
     makeAutoObservable(this);

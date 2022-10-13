@@ -5,7 +5,7 @@ import { Context } from "..";
 import BrandBar from "../components/BrandBar";
 import DeviceList from "../components/DeviceList";
 import TypeBar from "../components/TypeBar";
-import { fetchBrands, fetchTypes } from "../http/deviceAPI";
+import { fetchBrands, fetchTypes, fetchDevices } from "../http/deviceAPI";
 
 const Shop = observer(() => {
   const { device } = useContext(Context);
@@ -13,6 +13,7 @@ const Shop = observer(() => {
   useEffect(() => {
     fetchTypes().then((data) => device.setTypes(data));
     fetchBrands().then((data) => device.setBrands(data));
+    fetchDevices().then((data) => device.setDevices(data.rows));
   }, [device]);
   return (
     <Container className="mt-2">
